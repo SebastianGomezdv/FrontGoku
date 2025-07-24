@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -40,24 +40,28 @@
               class="mb-3 form-control"
               placeholder="Nombres"
               id="nombres"
+              required
             />
             <input
               type="number"
               class="mb-3 form-control"
               placeholder="Cantidad de Vida"
               id="cantidad"
+              required
             />
             <input
               type="number"
               class="mb-3 form-control"
               placeholder="Poder de Ataque"
               id="ataque"
+              required
             />
             <input
               type="number"
               class="mb-3 form-control"
               placeholder="Poder de Defensa"
               id="defensa"
+              required
             />
             <input
               type="text"
@@ -70,6 +74,7 @@
               class="mb-3 form-control"
               placeholder="Fecha de Creación"
               id="fecha"
+              required
             />
             <button class="btn btn-outline-dark" id="boton">Registrar</button>
           </form>
@@ -83,6 +88,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="/controlador.js"></script>
+    <script src="/controlador.js" type="module"></script>
   </body>
 </html>

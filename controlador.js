@@ -1,3 +1,4 @@
+import { consumirAPI } from "/consumoServicio.js";
 //Referencias al formulario
 
 let nombres = document.getElementById("nombres");
@@ -13,26 +14,44 @@ let botonFormulario = document.getElementById("boton");
 botonFormulario.addEventListener("click", function (evento) {
   evento.preventDefault();
   /*Swal.fire({
-    title: "Harol es una perra!",
-    text: "GG!",
+    title: "Buen trabajo!",
+    text: "Has hecho click!",
     icon: "success",
     });*/
   /*  Swal.fire({
     icon: "error",
     title: "Oops...",
-    text: "Something went wrong!",
-    footer: '<a href="#">Why do I have this issue?</a>',
+    text: "Algo ha sucedido!",
+    footer: '<a href="#">Porque tengo este problema?</a>',
     });*/
+
+  let datosQueVoyAEnviarALBack = {
+    "nombre": nombres.value,
+    "cantidadVida": cantidadVida.value,
+    "cantidadAtaque": poderAtaque.value,
+    "cantidadDefensa": poderDefensa.value,
+    "fotografia": fotografia.value,
+    "fechaCreacion": fechaCreacion.value,
+  }
+  let datosListosParaViajar = JSON.stringify(datosQueVoyAEnviarALBack);
+
+
+  // LLAMO AL CONSUMO  
+  consumirAPI(datosListosParaViajar)
+    .then(function (respuesta) {
+      Swal.fire({
+        title: "Buen trabajo!",
+        text: "Has Guardado Correctamente El Personaje!",
+        icon: "success",
+      });
+    })
+    .catch(function (error) {
+      Swal.fire({
+        title: "Error",
+        text: "Ocurrió un problema al guardar el personaje: " + error.message,
+        icon: "error",
+      });
+    });
+
 });
-let datosQueVoyAEnviarALBack = {
-  "nombres": nombres.value,
-  "cantidadVida": cantidadVida.value,
-  "poderAtaque": poderAtaque.value,
-  "poderDefensa": poderDefensa.value,
-  "fotografia": fotografia.value,
-  "fechaCreacion": fechaCreacion.value,
-};
 
-let datosListosParaViajar = JSON.stringify(datosQueVoyAEnviarALBack);
-
-alert(datosListosParaViajar);
