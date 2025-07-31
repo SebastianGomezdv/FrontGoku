@@ -1,4 +1,5 @@
-import { consumirAPI } from "/consumoServicio.js";
+import { consumirAPI, consumirAPIGet } from "/consumoServicio.js";
+
 //Referencias al formulario
 
 let inputs = document.querySelectorAll(".campo")
@@ -39,5 +40,14 @@ botonFormulario.addEventListener("click", function (evento) {
       });
     });
 
+
 });
 
+
+consumirAPIGet()
+.then(personaje => {
+  personaje.forEach(e => {
+  console.log(e);
+     
+  });
+});
