@@ -37,45 +37,73 @@
           <form class="border rounded shadow p-5">
             <input
               type="text"
-              class="mb-3 form-control"
+              class="mb-3 form-control campo"
               placeholder="Nombres"
               id="nombres"
               required
+              name="nombre"
             />
             <input
               type="number"
-              class="mb-3 form-control"
+              class="mb-3 form-control campo"
               placeholder="Cantidad de Vida"
               id="cantidad"
               required
+              name="cantidadVida"
             />
             <input
               type="number"
-              class="mb-3 form-control"
+              class="mb-3 form-control campo"
               placeholder="Poder de Ataque"
               id="ataque"
               required
+              name="cantidadAtaque"
             />
             <input
               type="number"
-              class="mb-3 form-control"
+              class="mb-3 form-control campo"
               placeholder="Poder de Defensa"
               id="defensa"
               required
+              name="cantidadDefensa"
             />
             <input
               type="text"
-              class="mb-3 form-control"
+              class="mb-3 form-control campo"
               placeholder="URL Fotografia"
               id="foto"
+              name="fotografia"
             />
             <input
               type="date"
-              class="mb-3 form-control"
+              class="mb-3 form-control campo"
               placeholder="Fecha de Creación"
               id="fecha"
               required
+              name="fechaCreacion"
             />
+            <input
+              type="text"
+              class="mb-3 form-control campo"
+              placeholder="Categoria"
+              id="categoria"
+              required
+              name="categoria"
+            />
+              <label>Sigue con vida?:</label>
+            <label><input 
+              type="radio"
+              value="true"
+              class="campo"
+              name="sigueVivo"
+              checked
+            />Si</label>
+            <label><input 
+              type="radio"
+              name="sigueVivo"
+              value="false"
+              class="campo"
+            />No</label>
             <button class="btn btn-outline-dark" id="boton">Registrar</button>
           </form>
         </section>

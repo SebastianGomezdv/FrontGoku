@@ -1,38 +1,24 @@
 import { consumirAPI } from "/consumoServicio.js";
 //Referencias al formulario
 
-let nombres = document.getElementById("nombres");
-let cantidadVida = document.getElementById("cantidad");
-let poderAtaque = document.getElementById("ataque");
-let poderDefensa = document.getElementById("defensa");
-let fotografia = document.getElementById("foto");
-let fechaCreacion = document.getElementById("fecha");
-let botonFormulario = document.getElementById("boton");
+let inputs = document.querySelectorAll(".campo")
+let botonFormulario = document.getElementById("boton")
 
 // detecto el evento de hacerle clic al boton
 
 botonFormulario.addEventListener("click", function (evento) {
   evento.preventDefault();
-  /*Swal.fire({
-    title: "Buen trabajo!",
-    text: "Has hecho click!",
-    icon: "success",
-    });*/
-  /*  Swal.fire({
-    icon: "error",
-    title: "Oops...",
-    text: "Algo ha sucedido!",
-    footer: '<a href="#">Porque tengo este problema?</a>',
-    });*/
-
   let datosQueVoyAEnviarALBack = {
-    "nombre": nombres.value,
-    "cantidadVida": cantidadVida.value,
-    "cantidadAtaque": poderAtaque.value,
-    "cantidadDefensa": poderDefensa.value,
-    "fotografia": fotografia.value,
-    "fechaCreacion": fechaCreacion.value,
   }
+  inputs.forEach(input => {
+    if (input.type === "radio") {
+      if (input.checked) {
+        datosQueVoyAEnviarALBack[input.name] = input.value
+      }
+    } else {
+      datosQueVoyAEnviarALBack[input.name] = input.value
+    }
+  })
   let datosListosParaViajar = JSON.stringify(datosQueVoyAEnviarALBack);
 
 
